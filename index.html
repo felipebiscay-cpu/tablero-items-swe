@@ -29,15 +29,15 @@
         <h1>Ítems cargados a catálogos SWE</h1>
         <p class="sub">Sellers que alguna vez se suscribieron a SWE. Actualización diaria.</p>
         <div class="tabs">
-          <button type="button" id="btn-day">Visión diaria</button>
           <button type="button" id="btn-month" class="active">Visión mensual</button>
+          <button type="button" id="btn-day">Visión diaria</button>
         </div>
         <p class="hint" id="hint">Evolución mes a mes.</p>
         <div class="chart-wrap">
           <canvas id="chart"></canvas>
           <p id="no-data-msg" class="no-data-msg" style="display: none;">Sin datos. Revisá que el nodo SQL esté conectado y devuelva columnas periodo, total_items, tipo_periodo.<br><span id="debug-line" style="font-size: 0.8rem; display: block; margin-top: 8px;">43 ítems recibidos, 1 filas para gráfico. Claves del primer ítem: ?.</span></p>
         </div>
-        <p class="footer">Última actualización: 2026-03-04 13:24 UTC</p>
+        <p class="footer">Última actualización: 2026-03-04 13:28 UTC</p>
       </div>
       <script>
         (function() {
@@ -79,13 +79,17 @@
               },
               scales: {
                 x: {
+                  display: true,
                   grid: { color: gridColor },
-                  ticks: { color: '#2d2d2d', maxRotation: 45 }
+                  ticks: { color: '#2d2d2d', maxRotation: 45, autoSkip: false, minRotation: 0 },
+                  title: { display: false }
                 },
                 y: {
+                  display: true,
                   beginAtZero: true,
                   grid: { color: gridColor },
-                  ticks: { color: '#2d2d2d' }
+                  ticks: { color: '#2d2d2d' },
+                  title: { display: false }
                 }
               }
             }
