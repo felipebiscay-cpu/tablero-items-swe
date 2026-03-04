@@ -37,7 +37,7 @@
           <canvas id="chart"></canvas>
           <p id="no-data-msg" class="no-data-msg" style="display: none;">Sin datos. Revisá que el nodo SQL esté conectado y devuelva columnas periodo, total_items, tipo_periodo.<br><span id="debug-line" style="font-size: 0.8rem; display: block; margin-top: 8px;">43 ítems recibidos, 1 filas para gráfico. Claves del primer ítem: ?.</span></p>
         </div>
-        <p class="footer">Última actualización: 2026-03-04 13:33 UTC</p>
+        <p class="footer">Última actualización: 2026-03-04 13:37 UTC</p>
       </div>
       <script>
         (function() {
@@ -55,15 +55,19 @@
 
           var ctx = document.getElementById('chart').getContext('2d');
           var chart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
               labels: labelsMonth,
               datasets: [{
                 label: 'Ítems cargados',
                 data: valuesMonth,
-                backgroundColor: barColor,
-                borderColor: barBorder,
-                borderWidth: 1
+                borderColor: barColor,
+                backgroundColor: 'rgba(255, 230, 0, 0.2)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.2,
+                pointRadius: 4,
+                pointBackgroundColor: barColor
               }]
             },
             options: {
